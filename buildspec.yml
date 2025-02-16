@@ -3,11 +3,11 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo Entered build phase...
+      - echo "Entered build phase..."
       - mvn clean package
   post build:
     commands:
-      - echo Build is completed
+      - echo "Build is completed"
 artificats:
   files:
     - target/AbdulRehman_Resume.jar
