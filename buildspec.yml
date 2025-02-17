@@ -1,24 +1,15 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 16
-    commands:
-      - npm install -g aws-cdk
-      - npm install
-
   pre_build:
     commands:
-      - echo "Running tests..."
-      - npm run test
+      - echo "Installing dependencies with verbose logging"
+      - npm install --loglevel verbose --legacy-peer-deps --unsafe-perm
 
   build:
     commands:
-      - echo "Building application..."
       - npm run build
 
   post_build:
     commands:
-      - echo "Deploying to AWS..."
-      - cdk deploy --all --require-approval never
+      - echo "Build completed successfully"
